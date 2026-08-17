@@ -533,7 +533,7 @@ page 50013 "QBAAPIV2 - Purchase Orders"
                     Caption = 'Last Modified Date';
                     Editable = false;
                 }
-                
+
                 // field(OwnerName; 'Rohit Singh')
                 // {
                 //     Caption = 'Owner Name';
@@ -552,6 +552,13 @@ page 50013 "QBAAPIV2 - Purchase Orders"
                     EntityName = 'dimensionSetLine';
                     EntitySetName = 'dimensionSetLines';
                     SubPageLink = "Parent Id" = field(Id), "Parent Type" = const("Purchase Order");
+                }
+                part(PurchaseOrderTaxes; "QBAAPIV2 - Purchase Order Tax")
+                {
+                    Caption = 'Purchase Order Tax';
+                    EntityName = 'purchaseOrderTax';
+                    EntitySetName = 'purchaseOrderTaxes';
+                    SubPageLink = "Document Type" = const(Order), "Document No." = field("No.");
                 }
                 part(DocumentAttachments; "QBAAPIV2 - Doc Attachments")
                 {
