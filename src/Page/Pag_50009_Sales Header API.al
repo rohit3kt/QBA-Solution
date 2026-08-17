@@ -1,4 +1,4 @@
-page 50009 "QBAAPIV2 - Sales Orders"
+page 50009 "QBAAPIV2 - Sales Orders Test"
 {
     PageType = API;
 
@@ -65,7 +65,7 @@ page 50009 "QBAAPIV2 - Sales Orders"
                     Caption = 'Customer Name';
                     Editable = false;
                 }
-                part(QBAsalesOrderLines; "QBAAPIV2 - Sales Order Lines")
+                part(QBAsalesOrderLines; "QBAAPIV2-Sale Order Lines Test")
                 {
                     Multiplicity = ZeroOrOne;
                     Caption = 'Lines';
@@ -76,8 +76,9 @@ page 50009 "QBAAPIV2 - Sales Orders"
             }
         }
     }
-
     actions
     {
     }
+    var
+    
 }

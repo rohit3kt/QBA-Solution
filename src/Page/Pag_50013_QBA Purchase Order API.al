@@ -519,16 +519,21 @@ page 50013 "QBAAPIV2 - Purchase Orders"
                         RegisterFieldSet(Rec.FieldNo("Completely Received"));
                     end;
                 }
-                field(status; Rec.Status)
+                // field(status; Rec.Status)
+                // {
+                //     Caption = 'Status';
+                //     Editable = false;
+                // }
+                field(Status; DocumentStatusVar)
                 {
-                    Caption = 'Status';
-                    Editable = false;
+                    Caption = 'PO Status';
                 }
                 field(lastModifiedDateTime; Rec.SystemModifiedAt)
                 {
                     Caption = 'Last Modified Date';
                     Editable = false;
                 }
+                
                 // field(OwnerName; 'Rohit Singh')
                 // {
                 //     Caption = 'Owner Name';
@@ -566,6 +571,7 @@ page 50013 "QBAAPIV2 - Purchase Orders"
     trigger OnAfterGetRecord()
     begin
         SetCalculatedFields();
+        SetDocumentStatus();
         if HasWritePermission then
             GraphMgtPurchOrderBuffer.RedistributeInvoiceDiscounts(Rec);
     end;
@@ -647,6 +653,7 @@ page 50013 "QBAAPIV2 - Purchase Orders"
         PostingDateSet: Boolean;
         PostingDateVar: Date;
         HasWritePermission: Boolean;
+        DocumentStatusVar: Enum "Purchase Document Status";//
 
     local procedure SetCalculatedFields()
     begin
@@ -781,5 +788,15 @@ page 50013 "QBAAPIV2 - Purchase Orders"
             SetActionResponse(ActionContext, PurchInvAggregator.GetPurchaseInvoiceHeaderId(PurchInvHeader), Page::"QBAAPIV2 - Purchase Invoices", WebServiceActionResultCode::Deleted)
         else
             SetActionResponse(ActionContext, PurchaseHeader.SystemId, Page::"QBAAPIV2 - Purchase Orders", WebServiceActionResultCode::Updated);
+    end;
+
+    local procedure SetDocumentStatus()
+    var
+        PurchaseHeader: Record "Purchase Header";
+    begin
+        Clear(DocumentStatusVar);
+
+        if PurchaseHeader.Get(PurchaseHeader."Document Type"::Order, Rec."No.") then
+            DocumentStatusVar := PurchaseHeader.Status;
     end;
 }

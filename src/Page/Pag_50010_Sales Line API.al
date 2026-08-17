@@ -1,4 +1,4 @@
-page 50010 "QBAAPIV2 - Sales Order Lines"
+page 50010 "QBAAPIV2-Sale Order Lines Test"
 {
     APIVersion = 'v2.0';
     EntityCaption = 'Sales Order Line';
