@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="iceNo">
+          <DataField>iceNo</DataField>
+        </Field>
+        <Field Name="Bill_to_Name">
+          <DataField>Bill_to_Name</DataField>
+        </Field>
+        <Field Name="Bill_to_Address">
+          <DataField>Bill_to_Address</DataField>
+        </Field>
+        <Field Name="Amount">
+          <DataField>Amount</DataField>
+        </Field>
+        <Field Name="AmountFormat">
+          <DataField>AmountFormat</DataField>
+        </Field>
+        <Field Name="companyName">
+          <DataField>companyName</DataField>
+        </Field>
+        <Field Name="caddress1">
+          <DataField>caddress1</DataField>
+        </Field>
+        <Field Name="caddress2">
+          <DataField>caddress2</DataField>
+        </Field>
+        <Field Name="reccompanyInfo">
+          <DataField>reccompanyInfo</DataField>
+        </Field>
+        <Field Name="companyInfoemail">
+          <DataField>companyInfoemail</DataField>
+        </Field>
+        <Field Name="ompanyInfoPicture">
+          <DataField>ompanyInfoPicture</DataField>
+        </Field>
+        <Field Name="companyInfoIBAN">
+          <DataField>companyInfoIBAN</DataField>
+        </Field>
+        <Field Name="CompanyInfoGST">
+          <DataField>CompanyInfoGST</DataField>
+        </Field>
+        <Field Name="companyInfoPAN">
+          <DataField>companyInfoPAN</DataField>
+        </Field>
+        <Field Name="reccompanyInfoARN">
+          <DataField>reccompanyInfoARN</DataField>
+        </Field>
+        <Field Name="CIN">
+          <DataField>CIN</DataField>
+        </Field>
+        <Field Name="picture2">
+          <DataField>picture2</DataField>
+        </Field>
+        <Field Name="msme">
+          <DataField>msme</DataField>
+        </Field>
+        <Field Name="Comment">
+          <DataField>Comment</DataField>
+        </Field>
+        <Field Name="CurrencyCode">
+          <DataField>CurrencyCode</DataField>
+        </Field>
+        <Field Name="CurrencyFactor">
+          <DataField>CurrencyFactor</DataField>
+        </Field>
+        <Field Name="CurrencyFactorFormat">
+          <DataField>CurrencyFactorFormat</DataField>
+        </Field>
+        <Field Name="DocumentDate">
+          <DataField>DocumentDate</DataField>
+        </Field>
+        <Field Name="DueDate">
+          <DataField>DueDate</DataField>
+        </Field>
+        <Field Name="LocationCode">
+          <DataField>LocationCode</DataField>
+        </Field>
+        <Field Name="No">
+          <DataField>No</DataField>
+        </Field>
+        <Field Name="PaymentMethodCode">
+          <DataField>PaymentMethodCode</DataField>
+        </Field>
+        <Field Name="PostingDate">
+          <DataField>PostingDate</DataField>
+        </Field>
+        <Field Name="PostingDescription">
+          <DataField>PostingDescription</DataField>
+        </Field>
+        <Field Name="ResponsibilityCenter">
+          <DataField>ResponsibilityCenter</DataField>
+        </Field>
+        <Field Name="custGST">
+          <DataField>custGST</DataField>
+        </Field>
+        <Field Name="custIRN">
+          <DataField>custIRN</DataField>
+        </Field>
+        <Field Name="hidevalue">
+          <DataField>hidevalue</DataField>
+        </Field>
+        <Field Name="hidevalue2">
+          <DataField>hidevalue2</DataField>
+        </Field>
+        <Field Name="Item_No">
+          <DataField>Item_No</DataField>
+        </Field>
+        <Field Name="cgst_amt">
+          <DataField>cgst_amt</DataField>
+        </Field>
+        <Field Name="cgst_amtFormat">
+          <DataField>cgst_amtFormat</DataField>
+        </Field>
+        <Field Name="IGST_Amt">
+          <DataField>IGST_Amt</DataField>
+        </Field>
+        <Field Name="IGST_AmtFormat">
+          <DataField>IGST_AmtFormat</DataField>
+        </Field>
+        <Field Name="CGST_per">
+          <DataField>CGST_per</DataField>
+        </Field>
+        <Field Name="CGST_perFormat">
+          <DataField>CGST_perFormat</DataField>
+        </Field>
+        <Field Name="IGST_per">
+          <DataField>IGST_per</DataField>
+        </Field>
+        <Field Name="IGST_perFormat">
+          <DataField>IGST_perFormat</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+        </Field>
+        <Field Name="QuantityFormat">
+          <DataField>QuantityFormat</DataField>
+        </Field>
+        <Field Name="Unit_of_Measure_Code">
+          <DataField>Unit_of_Measure_Code</DataField>
+        </Field>
+        <Field Name="Unit_Price">
+          <DataField>Unit_Price</DataField>
+        </Field>
+        <Field Name="Unit_PriceFormat">
+          <DataField>Unit_PriceFormat</DataField>
+        </Field>
+        <Field Name="Line_Amount">
+          <DataField>Line_Amount</DataField>
+        </Field>
+        <Field Name="Line_AmountFormat">
+          <DataField>Line_AmountFormat</DataField>
+        </Field>
+        <Field Name="SlNo">
+          <DataField>SlNo</DataField>
+        </Field>
+        <Field Name="HSN_SAC_Code">
+          <DataField>HSN_SAC_Code</DataField>
+        </Field>
+        <Field Name="cgstper">
+          <DataField>cgstper</DataField>
+        </Field>
+        <Field Name="cgstperFormat">
+          <DataField>cgstperFormat</DataField>
+        </Field>
+        <Field Name="CGSTamt">
+          <DataField>CGSTamt</DataField>
+        </Field>
+        <Field Name="CGSTamtFormat">
+          <DataField>CGSTamtFormat</DataField>
+        </Field>
+        <Field Name="sgstamt">
+          <DataField>sgstamt</DataField>
+        </Field>
+        <Field Name="sgstamtFormat">
+          <DataField>sgstamtFormat</DataField>
+        </Field>
+        <Field Name="sgstper">
+          <DataField>sgstper</DataField>
+        </Field>
+        <Field Name="sgstperFormat">
+          <DataField>sgstperFormat</DataField>
+        </Field>
+        <Field Name="Igstper">
+          <DataField>Igstper</DataField>
+        </Field>
+        <Field Name="IgstperFormat">
+          <DataField>IgstperFormat</DataField>
+        </Field>
+        <Field Name="IGSTamt">
+          <DataField>IGSTamt</DataField>
+        </Field>
+        <Field Name="IGSTamtFormat">
+          <DataField>IGSTamtFormat</DataField>
+        </Field>
+        <Field Name="NoText">
+          <DataField>NoText</DataField>
+        </Field>
+        <Field Name="INRorUSDorEURO">
+          <DataField>INRorUSDorEURO</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

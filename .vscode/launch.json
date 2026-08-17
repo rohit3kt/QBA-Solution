@@ -1,0 +1,47 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "TEST_Sandbox",
+            "request": "launch",
+            "type": "al",
+            "environmentType": "Sandbox",
+            "environmentName": "TEST_Sandbox",
+            "startupObjectType": "Page",
+            "startupObjectId": 9307,
+            "breakOnError": "All",
+            "tenant": "2ec62294-dda7-4517-b84d-4845795e0d29",
+            "launchBrowser": true,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "schemaUpdateMode": "ForceSync"
+        },
+        {
+            "name": "Copy_Production_160626",
+            "request": "launch",
+            "type": "al",
+            "environmentType": "Sandbox",
+            "environmentName": "Copy_Production_160626",
+            "startupObjectType": "Page",
+            "startupObjectId": 9307,
+            "breakOnError": "All",
+            "tenant": "2ec62294-dda7-4517-b84d-4845795e0d29",
+            "launchBrowser": true,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "schemaUpdateMode": "ForceSync"
+        },
+        {
+            "name": "AL: Generated Snapshot request",
+            "request": "snapshotInitialize",
+            "type": "al",
+            "environmentType": "Production",
+            "environmentName": "Production",
+            "sessionId": 42511,
+            "breakOnNext": "WebClient",
+            "executionContext": "DebugAndProfile",
+            "userId": "CHAMPAK.MAITY",
+            "tenant": "2ec62294-dda7-4517-b84d-4845795e0d29"
+        }
+    ]
+}
