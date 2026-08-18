@@ -11,7 +11,7 @@ page 50014 "QBAAPIV2 - Purch Order Lines"
     EntitySetName = 'purchaseOrderLines';
 
     PageType = API;
-    ODataKeyFields = SystemId;
+    ODataKeyFields = SystemId;//
 
     SourceTable = "Purch. Inv. Line Aggregate";
     SourceTableTemporary = true;

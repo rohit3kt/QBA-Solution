@@ -1,6 +1,6 @@
 page 50028 "APIV2 - Sales Credit Mem Lines"
 {
-    
+
     APIVersion = 'v2.0';
     APIPublisher = 'QBA';
     APIGroup = 'Agentic';
@@ -14,7 +14,7 @@ page 50028 "APIV2 - Sales Credit Mem Lines"
 
     PageType = API;
     ODataKeyFields = SystemId;
-    
+
     SourceTable = "Sales Invoice Line Aggregate";
     SourceTableTemporary = true;
     Extensible = false;
@@ -409,4 +409,10 @@ page 50028 "APIV2 - Sales Credit Mem Lines"
 
         Clear(Item);
     end;
+
+    var
+        PurchaseHeader: Record "Purchase Header";
+        PurchaseOrder: Page "Purchase Order";
+        PurchaseOrderStatic: Page "Purchase Order Statistics";
+        asas:Record "Tax Transaction Value";
 }

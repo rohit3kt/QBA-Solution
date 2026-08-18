@@ -553,7 +553,7 @@ page 50013 "QBAAPIV2 - Purchase Orders"
                     EntitySetName = 'dimensionSetLines';
                     SubPageLink = "Parent Id" = field(Id), "Parent Type" = const("Purchase Order");
                 }
-                part(PurchaseOrderTaxes; "QBAAPIV2 - Purchase Order Tax")
+                part(PurchaseOrderTaxes; "Purchase Order Tax")
                 {
                     Caption = 'Purchase Order Tax';
                     EntityName = 'purchaseOrderTax';
