@@ -39,6 +39,10 @@ page 50014 "QBAAPIV2 - Purch Order Lines"
                             Error(CannotChangeDocumentIdNoErr);
                     end;
                 }
+                field(documentNo; Rec."Document No.")
+                {
+                    Caption = 'Document No.';
+                }
                 field(sequence; Rec."Line No.")
                 {
                     Caption = 'Sequence';
@@ -388,10 +392,17 @@ page 50014 "QBAAPIV2 - Purch Order Lines"
                     Multiplicity = ZeroOrOne;
                     SubPageLink = SystemId = field("Location Id");
                 }
+                part(purchaseOrderTaxes; "QBAAPIV2 - Purchase Order Tax")
+                {
+                    EntityName = 'purchaseOrderTax';
+                    EntitySetName = 'purchaseOrderTaxes';
+                    //SubPageLink = "Document No." = field("Document No."), "Line No." = field("Line No.");
+                    SubPageLink = SystemId = field(SystemId);
+                    Multiplicity = Many;
+                }
             }
         }
     }
-
     actions
     {
     }
@@ -411,6 +422,7 @@ page 50014 "QBAAPIV2 - Purch Order Lines"
         DocumentIdFilter: Text;
         IdFilter: Text;
         FilterView: Text;
+
     begin
         if not LinesLoaded then begin
             FilterView := Rec.GetView();
@@ -428,6 +440,10 @@ page 50014 "QBAAPIV2 - Purch Order Lines"
             if not Rec.FindFirst() then
                 exit(false);
             LinesLoaded := true;
+
+            if PurchaseHeader.GetBySystemId(Rec."Document Id") then
+                Rec."Document No." := PurchaseHeader."No.";
+
         end;
 
         exit(true);
@@ -445,6 +461,8 @@ page 50014 "QBAAPIV2 - Purch Order Lines"
         GraphMgtPurchOrderBuffer: Codeunit "Graph Mgt - Purch Order Buffer";
     begin
         GraphMgtPurchOrderBuffer.PropagateModifyLine(Rec, TempFieldBuffer);
+        if PurchaseHeader.GetBySystemId(Rec."Document Id") then
+            Rec."Document No." := PurchaseHeader."No.";
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
@@ -465,6 +483,8 @@ page 50014 "QBAAPIV2 - Purch Order Lines"
         ItemDoesNotExistErr: Label 'Item does not exist.';
         AccountDoesNotExistErr: Label 'Account does not exist.';
         CannotChangeLineObjectNoErr: Label 'The value for "lineObjectNumber" cannot be modified.', Comment = 'lineObjectNumber is a field name and should not be translated.';
+        //DocumentNo: Code[20];
+        PurchaseHeader: Record "Purchase Header";
 
     local procedure RegisterFieldSet(FieldNo: Integer)
     var

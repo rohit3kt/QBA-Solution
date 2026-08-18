@@ -42,6 +42,19 @@
             "executionContext": "DebugAndProfile",
             "userId": "CHAMPAK.MAITY",
             "tenant": "2ec62294-dda7-4517-b84d-4845795e0d29" 
+        },
+        {
+            "name": "Webservice",
+            "request": "attach",
+            "type": "al",
+            "environmentType": "Sandbox",
+            "environmentName": "TEST_Sandbox",
+            "breakOnError": "All",
+            "tenant": "2ec62294-dda7-4517-b84d-4845795e0d29",
+            "server": "https://businesscentral.dynamics.com/",
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            //"breakOnNext": "Background"
         }
     ]
 }

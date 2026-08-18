@@ -468,6 +468,7 @@ page 50013 "QBAAPIV2 - Purchase Orders"
                     EntityName = 'purchaseOrderLine';
                     EntitySetName = 'purchaseOrderLines';
                     SubPageLink = "Document Id" = field(Id);
+                    Multiplicity = Many;
                 }
                 field(discountAmount; Rec."Invoice Discount Amount")
                 {
@@ -553,13 +554,13 @@ page 50013 "QBAAPIV2 - Purchase Orders"
                     EntitySetName = 'dimensionSetLines';
                     SubPageLink = "Parent Id" = field(Id), "Parent Type" = const("Purchase Order");
                 }
-                part(PurchaseOrderTaxes; "Purchase Order Tax")
-                {
-                    Caption = 'Purchase Order Tax';
-                    EntityName = 'purchaseOrderTax';
-                    EntitySetName = 'purchaseOrderTaxes';
-                    SubPageLink = "Document Type" = const(Order), "Document No." = field("No.");
-                }
+                // part(PurchaseOrderTaxes; "Purchase Order Tax")
+                // {
+                //     Caption = 'Purchase Order Tax';
+                //     EntityName = 'purchaseOrderTax';
+                //     EntitySetName = 'purchaseOrderTaxes';
+                //     SubPageLink = "Document Type" = const(Order), "Document No." = field("No.");
+                // }
                 part(DocumentAttachments; "QBAAPIV2 - Doc Attachments")
                 {
                     Caption = 'Document Attachments';

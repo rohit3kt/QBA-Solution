@@ -26,5 +26,9 @@ tableextension 50043 MyExt extends "Purch. Inv. Line Aggregate"
             Caption = 'Gen. Product Posting Group';
             TableRelation = "Gen. Product Posting Group";
         }
+        field(60005; "Document No."; Code[20])
+        {
+            Caption = 'Document No.';
+        }
     }
 }
